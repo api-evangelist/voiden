@@ -1,6 +1,7 @@
 aid: voiden
 name: Voiden
-description: 'Reusable blocks. Inheritance. Composition.Not copy-paste collections. '
+description: >-
+  Reusable blocks. Inheritance. Composition.Not copy-paste collections.
 type: Index
 position: Consumer
 access: 3rd-Party
@@ -15,7 +16,8 @@ specificationVersion: '0.19'
 apis:
   - aid: voiden:voiden
     name: Voiden
-    description: 'Reusable blocks. Inheritance. Composition.Not copy-paste collections. '
+    description: >-
+      Reusable blocks. Inheritance. Composition.Not copy-paste collections.
     humanURL: ' https://voiden.md/'
     tags:
       - API
