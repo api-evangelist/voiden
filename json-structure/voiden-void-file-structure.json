@@ -1,0 +1,99 @@
+{
+  "title": "Voiden .void File Structure",
+  "description": "Field-level documentation for Voiden .void file format.",
+  "type": "object",
+  "fields": [
+    {
+      "name": "version",
+      "type": "string",
+      "required": false,
+      "description": "File format version (e.g. '1.0')."
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "required": false,
+      "description": "Human-readable label for the file."
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "required": false,
+      "description": "Markdown documentation for the file."
+    },
+    {
+      "name": "imports",
+      "type": "array<string>",
+      "required": false,
+      "description": "Relative paths to other .void files whose blocks are inherited."
+    },
+    {
+      "name": "blocks",
+      "type": "array<Block>",
+      "required": false,
+      "description": "Reusable API component blocks.",
+      "fields": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "Auto-generated unique block identifier."
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "description": "Block type: endpoint | auth | headers | params | body | request | assertion."
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "Block display name."
+        },
+        {
+          "name": "extends",
+          "type": "string",
+          "description": "ID of a parent block this block inherits from."
+        },
+        {
+          "name": "method",
+          "type": "string",
+          "description": "HTTP method for request blocks."
+        },
+        {
+          "name": "url",
+          "type": "string",
+          "description": "URL or template for request blocks."
+        },
+        {
+          "name": "headers",
+          "type": "object",
+          "description": "Key-value HTTP headers."
+        },
+        {
+          "name": "params",
+          "type": "object",
+          "description": "Key-value query parameters."
+        },
+        {
+          "name": "auth",
+          "type": "AuthBlock",
+          "description": "Authentication configuration."
+        },
+        {
+          "name": "body",
+          "type": "object",
+          "description": "Request body with contentType and data."
+        },
+        {
+          "name": "assertions",
+          "type": "array<Assertion>",
+          "description": "Response assertions for test mode."
+        },
+        {
+          "name": "scripts",
+          "type": "Scripts",
+          "description": "Pre/post-request scripts."
+        }
+      ]
+    }
+  ]
+}

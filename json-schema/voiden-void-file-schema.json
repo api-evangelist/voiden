@@ -1,0 +1,182 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12",
+  "$id": "https://voiden.md/schemas/void-file",
+  "title": "Voiden .void File",
+  "description": "Schema for Voiden .void files — plain Markdown documents with YAML frontmatter and structured API request blocks that combine documentation and executable HTTP requests.",
+  "type": "object",
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "The Voiden file format version.",
+      "example": "1.0"
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name for this .void file or block collection."
+    },
+    "description": {
+      "type": "string",
+      "description": "Documentation describing the purpose of this file."
+    },
+    "blocks": {
+      "type": "array",
+      "description": "Array of reusable blocks defined in this file.",
+      "items": {
+        "$ref": "#/$defs/Block"
+      }
+    },
+    "imports": {
+      "type": "array",
+      "description": "Other .void files imported to inherit blocks from.",
+      "items": {
+        "type": "string",
+        "description": "Relative path to an imported .void file."
+      }
+    }
+  },
+  "$defs": {
+    "Block": {
+      "type": "object",
+      "description": "A reusable API component block — endpoint, auth, headers, params, body, or request.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for this block (auto-generated)."
+        },
+        "type": {
+          "type": "string",
+          "enum": ["endpoint", "auth", "headers", "params", "body", "request", "assertion"],
+          "description": "The type of block."
+        },
+        "name": {
+          "type": "string",
+          "description": "Human-readable name for the block."
+        },
+        "description": {
+          "type": "string",
+          "description": "Markdown documentation for the block."
+        },
+        "method": {
+          "type": "string",
+          "enum": ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"],
+          "description": "HTTP method (for request blocks)."
+        },
+        "url": {
+          "type": "string",
+          "description": "URL or URL template for the request."
+        },
+        "headers": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "HTTP headers as key-value pairs."
+        },
+        "params": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Query parameters as key-value pairs."
+        },
+        "body": {
+          "type": "object",
+          "description": "Request body definition.",
+          "properties": {
+            "contentType": {
+              "type": "string",
+              "description": "Content-Type header value."
+            },
+            "data": {
+              "description": "The request body content."
+            }
+          }
+        },
+        "auth": {
+          "$ref": "#/$defs/AuthBlock"
+        },
+        "assertions": {
+          "type": "array",
+          "description": "Response assertions for testing.",
+          "items": {
+            "$ref": "#/$defs/Assertion"
+          }
+        },
+        "scripts": {
+          "$ref": "#/$defs/Scripts"
+        },
+        "extends": {
+          "type": "string",
+          "description": "Block ID this block inherits from."
+        }
+      }
+    },
+    "AuthBlock": {
+      "type": "object",
+      "description": "Authentication configuration block.",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["bearer", "basic", "apikey", "oauth2", "none"],
+          "description": "Authentication scheme."
+        },
+        "token": {
+          "type": "string",
+          "description": "Token value or template variable."
+        },
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "key": {
+          "type": "string",
+          "description": "API key value or template variable."
+        },
+        "placement": {
+          "type": "string",
+          "enum": ["header", "query"],
+          "description": "Where to place the API key."
+        }
+      }
+    },
+    "Assertion": {
+      "type": "object",
+      "description": "A test assertion on the response.",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["status", "body", "header", "json-path"],
+          "description": "What to assert on."
+        },
+        "expected": {
+          "description": "Expected value."
+        },
+        "path": {
+          "type": "string",
+          "description": "JSON path for json-path assertions."
+        }
+      }
+    },
+    "Scripts": {
+      "type": "object",
+      "description": "Pre/post-request scripts.",
+      "properties": {
+        "pre": {
+          "type": "string",
+          "description": "Script to run before the request (JavaScript, Python, or shell)."
+        },
+        "post": {
+          "type": "string",
+          "description": "Script to run after the request."
+        },
+        "language": {
+          "type": "string",
+          "enum": ["javascript", "python", "shell"],
+          "description": "Script language."
+        }
+      }
+    }
+  }
+}

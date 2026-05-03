@@ -1,0 +1,20 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "voiden": "https://voiden.md/ns/",
+    "voidFile": "voiden:voidFile",
+    "block": "voiden:block",
+    "blockType": "voiden:blockType",
+    "extends": "voiden:extends",
+    "assertion": "voiden:assertion",
+    "SoftwareApplication": "schema:SoftwareApplication",
+    "SoftwareSourceCode": "schema:SoftwareSourceCode",
+    "name": "schema:name",
+    "description": "schema:description",
+    "url": "schema:url",
+    "license": "schema:license",
+    "programmingLanguage": "schema:programmingLanguage",
+    "codeRepository": "schema:codeRepository",
+    "operatingSystem": "schema:operatingSystem"
+  }
+}

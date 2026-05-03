@@ -1,0 +1,101 @@
+vocabulary:
+  name: Voiden Vocabulary
+  description: >-
+    Domain vocabulary for Voiden — the offline-first, Git-native API workspace.
+    Covers the .void file format, block composition model, and API workspace concepts.
+  version: '2026-05-03'
+  terms:
+    - term: .void File
+      definition: >-
+        The core file format used by Voiden. A plain Markdown file combining
+        YAML frontmatter, human-readable documentation, and structured API
+        request blocks. Files live alongside code in Git repositories.
+      tags:
+        - File Format
+        - Core Concept
+
+    - term: Block
+      definition: >-
+        A reusable, named API component in a .void file. Blocks represent
+        discrete parts of an HTTP request — endpoint, authentication, headers,
+        query parameters, request body, or complete request — that can be
+        inherited and composed across files.
+      tags:
+        - Core Concept
+        - Composition
+
+    - term: Composition
+      definition: >-
+        The practice of assembling complete API requests from multiple reusable
+        blocks, combining an endpoint block, an auth block, a params block, and
+        a body block into a single executable request definition.
+      tags:
+        - Design Pattern
+
+    - term: Inheritance
+      definition: >-
+        A block relationship where a child block extends a parent block,
+        overriding only specific fields while inheriting all others unchanged.
+        Enables DRY (Don't Repeat Yourself) API definitions.
+      tags:
+        - Design Pattern
+
+    - term: Import
+      definition: >-
+        A .void file directive that pulls in block definitions from another
+        .void file, enabling cross-file reuse without duplication.
+      tags:
+        - File Format
+
+    - term: Git Native
+      definition: >-
+        An architectural property of Voiden meaning all state, definitions,
+        and history are stored as plain files versioned in Git. No external
+        database, sync service, or cloud platform is required.
+      tags:
+        - Architecture
+
+    - term: Offline First
+      definition: >-
+        Voiden's design principle ensuring full functionality without internet
+        connectivity. All operations — design, execution, documentation — work
+        against local files.
+      tags:
+        - Architecture
+
+    - term: Assertion
+      definition: >-
+        A test condition defined on an expected API response, checking status
+        code, response body fields, or header values. Assertions enable
+        automated API testing from .void files.
+      tags:
+        - Testing
+
+    - term: Pre-Request Script
+      definition: >-
+        JavaScript, Python, or shell code executed before a request block is
+        sent, typically used to set dynamic values like timestamps or computed
+        signatures.
+      tags:
+        - Scripting
+
+    - term: Post-Request Script
+      definition: >-
+        Code executed after a response is received, typically used to extract
+        values for use in subsequent requests or to perform custom assertions.
+      tags:
+        - Scripting
+
+    - term: Electron
+      definition: >-
+        The desktop application framework (Node.js + Chromium) used to build
+        Voiden's cross-platform desktop app for macOS, Windows, and Linux.
+      tags:
+        - Technology
+
+    - term: Batch Execution
+      definition: >-
+        Running multiple request blocks sequentially or in parallel, typically
+        for integration testing or bulk API operations.
+      tags:
+        - Testing
