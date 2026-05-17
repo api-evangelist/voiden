@@ -51,7 +51,7 @@ common:
     url: json-schema/voiden-void-file-schema.json
   - type: JSONStructure
     url: json-structure/voiden-void-file-structure.json
-  - type: JSON-LD
+  - type: JSONLD
     url: json-ld/voiden-context.jsonld
   - type: Vocabulary
     url: vocabulary/voiden-vocabulary.yml
