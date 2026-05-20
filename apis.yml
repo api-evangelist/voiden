@@ -43,6 +43,8 @@ apis:
       - type: JSONSchema
         url: json-schema/voiden-void-file-schema.json
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/showcase/voiden
   - type: Website
     url: https://voiden.md/
   - type: GitHubRepository
