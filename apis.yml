@@ -45,6 +45,8 @@ apis:
   - url: graphql/voiden-graphql.md
     type: GraphQL
 common:
+- type: DomainSecurity
+  url: security/voiden-domain-security.yml
 - type: LinkedIn
   url: https://www.linkedin.com/showcase/voiden
 - type: Website
