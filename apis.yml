@@ -9,6 +9,17 @@ description: >-
   REST, GraphQL, WebSocket, and gRPC. Built on Electron (TypeScript), Apache 2.0 licensed.
 type: Index
 url: https://voiden.md/
+deliveryModel:
+  model: unknown
+  open_source: unknown
+  commercial: false
+  callable_host: false
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - repository-unlicensed
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: unknown
@@ -64,6 +75,16 @@ apis:
   - url: graphql/voiden-graphql.md
     type: GraphQL
 common:
+- type: IssueTracker
+  url: https://github.com/VoidenHQ/voiden/issues
+- type: Releases
+  url: https://github.com/VoidenHQ/voiden/releases
+- type: SecurityPolicy
+  url: https://github.com/VoidenHQ/voiden/blob/main/SECURITY.md
+- type: CodeOfConduct
+  url: https://github.com/VoidenHQ/voiden/blob/main/CODE_OF_CONDUCT.md
+- type: ContributionGuide
+  url: https://github.com/VoidenHQ/voiden/blob/main/CONTRIBUTING.md
 - type: DomainSecurity
   url: security/voiden-domain-security.yml
 - type: LinkedIn
