@@ -1,1 +1,0 @@
-# Voiden GraphQL API

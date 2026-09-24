@@ -72,8 +72,6 @@ apis:
     url: https://github.com/VoidenHQ/voiden
   - type: JSONSchema
     url: json-schema/voiden-void-file-schema.json
-  - url: graphql/voiden-graphql.md
-    type: GraphQL
 common:
 - type: IssueTracker
   url: https://github.com/VoidenHQ/voiden/issues
